@@ -4,6 +4,8 @@
 
 A personal portfolio website built with React and Chakra UI that allows me to showcase my projects and write articles about technology, machine learning, and software development. The site features a clean, modern design with light/dark theme support and full CRUD functionality for managing content.
 
+🟢 **Check it live at:** [www.marinnegai.com](https://www.marinnegai.com)
+
 ## Features
 
 ### Core Functionality
