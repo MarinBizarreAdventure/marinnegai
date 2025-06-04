@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <Box>
       {/* Hero Section */}
-      <Box bg={bg} py={20} mb={10} borderRadius="lg">
+      <Box bg={useColorModeValue('brand.cream', 'gray.900')} py={20} mb={10} borderRadius="lg">
         <Container maxW="container.md">
           <VStack spacing={6} textAlign="center">
             <Heading size="2xl">Hi, I'm Marin Negai</Heading>

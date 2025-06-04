@@ -11,12 +11,12 @@ import {
   Tag,
   IconButton,
 } from '@chakra-ui/react';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaHeart } from 'react-icons/fa';
 import { useData } from '../../contexts/DataContext';
 
 const ArticleCard = ({ article, showActions = false }) => {
   const navigate = useNavigate();
-  const { deleteArticle } = useData();
+  const { deleteArticle, likeArticle } = useData();
   const bg = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
 
@@ -30,6 +30,11 @@ const ArticleCard = ({ article, showActions = false }) => {
   const handleEdit = (e) => {
     e.stopPropagation();
     navigate(`/articles/edit/${article.id}`);
+  };
+
+  const handleLike = (e) => {
+    e.stopPropagation();
+    likeArticle(article.id);
   };
 
   const handleClick = () => {
@@ -61,9 +66,24 @@ const ArticleCard = ({ article, showActions = false }) => {
           ))}
         </HStack>
         <HStack justify="space-between" align="center">
-          <Text fontSize="sm" color={useColorModeValue('gray.500', 'gray.400')}>
-            {new Date(article.createdAt).toLocaleDateString()}
-          </Text>
+          <HStack spacing={4}>
+            <Text fontSize="sm" color={useColorModeValue('gray.500', 'gray.400')}>
+              {new Date(article.createdAt).toLocaleDateString()}
+            </Text>
+            <HStack spacing={1}>
+              <IconButton
+                aria-label="Like article"
+                icon={<FaHeart />}
+                size="sm"
+                variant="ghost"
+                colorScheme="red"
+                onClick={handleLike}
+              />
+              <Text fontSize="sm" color={useColorModeValue('gray.500', 'gray.400')}>
+                {article.likes || 0}
+              </Text>
+            </HStack>
+          </HStack>
           {showActions && (
             <HStack spacing={2}>
               <IconButton

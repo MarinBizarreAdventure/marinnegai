@@ -80,6 +80,7 @@ Using FP16 or BF16 instead of FP32:
 
 Distributed training is not just about splitting work across GPUs—it's about carefully orchestrating computation, memory, and communication to achieve optimal performance. As models continue to grow, innovations in distributed training will remain critical for pushing the boundaries of AI.`,
         tags: ['Machine Learning', 'LLM', 'Distributed Systems', 'AI'],
+        likes: 0,
         createdAt: new Date().toISOString()
       };
       setArticles([sampleArticle]);
@@ -112,6 +113,7 @@ Distributed training is not just about splitting work across GPUs—it's about c
     const newArticle = {
       id: uuidv4(),
       createdAt: new Date().toISOString(),
+      likes: 0,
       ...article,
     };
     const updatedArticles = [...articles, newArticle];
@@ -136,6 +138,14 @@ Distributed training is not just about splitting work across GPUs—it's about c
 
   const getArticleById = (id) => {
     return articles.find(article => article.id === id);
+  };
+
+  const likeArticle = (id) => {
+    const updatedArticles = articles.map(article =>
+      article.id === id ? { ...article, likes: (article.likes || 0) + 1 } : article
+    );
+    setArticles(updatedArticles);
+    saveArticles(updatedArticles);
   };
 
   // Project functions
@@ -181,6 +191,7 @@ Distributed training is not just about splitting work across GPUs—it's about c
     updateArticle,
     deleteArticle,
     getArticleById,
+    likeArticle,
     addProject,
     updateProject,
     deleteProject,
