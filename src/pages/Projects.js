@@ -33,6 +33,8 @@ const Projects = () => {
   const [filterStatus, setFilterStatus] = useState('');
   const [filterTech, setFilterTech] = useState('');
   const [sortBy, setSortBy] = useState('newest');
+  
+  const emptyTextColor = useColorModeValue('gray.500', 'gray.400');
 
   // Get all unique technologies
   const allTechnologies = useMemo(() => {
@@ -176,7 +178,7 @@ const Projects = () => {
           </SimpleGrid>
         ) : (
           <Box textAlign="center" py={20}>
-            <Text fontSize="lg" color={useColorModeValue('gray.500', 'gray.400')}>
+            <Text fontSize="lg" color={emptyTextColor}>
               {searchTerm || filterStatus || filterTech
                 ? 'No projects found matching your criteria.'
                 : 'No projects yet. Add your first project!'}

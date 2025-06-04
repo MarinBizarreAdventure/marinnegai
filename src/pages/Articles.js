@@ -28,6 +28,7 @@ const Articles = () => {
   const [sortBy, setSortBy] = useState('newest');
 
   const bg = useColorModeValue('gray.50', 'gray.900');
+  const emptyTextColor = useColorModeValue('gray.500', 'gray.400');
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -149,7 +150,7 @@ const Articles = () => {
               </SimpleGrid>
             ) : (
               <Box textAlign="center" py={20}>
-                <Text fontSize="lg" color={useColorModeValue('gray.500', 'gray.400')}>
+                <Text fontSize="lg" color={emptyTextColor}>
                   {searchTerm || filterTag
                     ? 'No articles found matching your criteria.'
                     : 'No articles yet. Create your first article!'}

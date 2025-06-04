@@ -20,6 +20,7 @@ import ProjectCard from '../components/Projects/ProjectCard';
 const Home = () => {
   const { articles, projects } = useData();
   const bg = useColorModeValue('gray.50', 'gray.900');
+  const emptyTextColor = useColorModeValue('gray.500', 'gray.400');
   
   // Get latest 3 articles and projects
   const latestArticles = articles.slice(-3).reverse();
@@ -70,7 +71,7 @@ const Home = () => {
           </SimpleGrid>
         ) : (
           <Box textAlign="center" py={10}>
-            <Text color={useColorModeValue('gray.500', 'gray.400')}>
+            <Text color={emptyTextColor}>
               No articles yet. Start writing!
             </Text>
             <Button as={RouterLink} to="/articles" mt={4} variant="outline">
@@ -99,7 +100,7 @@ const Home = () => {
           </SimpleGrid>
         ) : (
           <Box textAlign="center" py={10}>
-            <Text color={useColorModeValue('gray.500', 'gray.400')}>
+            <Text color={emptyTextColor}>
               No projects yet. Add your first project!
             </Text>
             <Button as={RouterLink} to="/projects" mt={4} variant="outline">
