@@ -2,9 +2,8 @@
   "name": "marinnegai",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://marinbizarreadventure.github.io/marinnegai",
+  "homepage": "https://marinnegai.com",
   "dependencies": {
-    "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -48,6 +47,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.1.0"
   }
 }
