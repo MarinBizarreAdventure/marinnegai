@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/marinnegai/static/js/main.b52c7331.js",
+    "index.html": "/marinnegai/index.html",
+    "main.b52c7331.js.map": "/marinnegai/static/js/main.b52c7331.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.b52c7331.js"
+  ]
+}
