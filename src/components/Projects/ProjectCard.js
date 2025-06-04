@@ -30,6 +30,8 @@ const ProjectCard = ({ project, showActions = false, onEdit }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const bg = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const textColor = useColorModeValue('gray.600', 'gray.400');
+  const mutedTextColor = useColorModeValue('gray.500', 'gray.400');
 
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to delete this project?')) {
@@ -62,7 +64,7 @@ const ProjectCard = ({ project, showActions = false, onEdit }) => {
             </Badge>
           </HStack>
 
-          <Text color={useColorModeValue('gray.600', 'gray.400')} noOfLines={2}>
+          <Text color={textColor} noOfLines={2}>
             {project.description}
           </Text>
 
@@ -130,7 +132,7 @@ const ProjectCard = ({ project, showActions = false, onEdit }) => {
                   handleLike();
                 }}
               />
-              <Text fontSize="sm" color={useColorModeValue('gray.500', 'gray.400')}>
+              <Text fontSize="sm" color={mutedTextColor}>
                 {project.likes || 0}
               </Text>
             </HStack>
@@ -189,11 +191,11 @@ const ProjectCard = ({ project, showActions = false, onEdit }) => {
               </Box>
 
               <Box>
-                <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                <Text fontSize="sm" color={textColor}>
                   Created: {new Date(project.createdAt).toLocaleDateString()}
                 </Text>
                 {project.updatedAt && (
-                  <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                  <Text fontSize="sm" color={textColor}>
                     Updated: {new Date(project.updatedAt).toLocaleDateString()}
                   </Text>
                 )}
